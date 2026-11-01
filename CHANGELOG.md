@@ -1,0 +1,18 @@
+# Changelog
+
+Todas as mudanças relevantes deste projeto serão registradas neste arquivo.
+
+O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e este projeto utiliza versionamento semântico.
+
+## [Unreleased]
+
+### Added
+
+- PlayerRoot técnico com movimento físico 2D e visual placeholder (#4).
+
+## [0.1.0] - 2026-11-01
+
+### Added
+
+- Estrutura inicial do projeto Arcadia, cenas `Boot` e `Prototype_Exploration`, e fluxo de inicialização (#2).
+- Ação `Exploration/Move`, orientação mobile, controles de teclado e joystick virtual editável baseado no Input System (#3).
