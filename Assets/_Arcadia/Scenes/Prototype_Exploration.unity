@@ -425,3 +425,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f5ab4f5524aa7b8eea6067ca3881e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Arcadia.Input.VirtualJoystickView
+  joystickPrefab: {fileID: 1579212000, guid: 06b38eeab7f843fca8fdb8b3a4700cfa, type: 3}
