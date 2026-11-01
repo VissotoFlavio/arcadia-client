@@ -8,6 +8,7 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e es
 
 ### Added
 
+- Mapa técnico isométrico com chão placeholder, paredes, árvore, rocha e colisão por ocupação no pé (#6).
 - PlayerRoot técnico com movimento físico 2D e visual placeholder (#4).
 - Câmera ortográfica de exploração com acompanhamento e limites técnicos de mapa (#5).
 
