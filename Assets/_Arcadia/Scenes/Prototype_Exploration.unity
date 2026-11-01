@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -241,6 +242,26 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c74b06d09274a7793b8d4a1c4d43ac9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Arcadia.Exploration.ExplorationCameraController
+  target: {fileID: 528628029}
+  worldBounds:
+    serializedVersion: 2
+    x: -12
+    y: -7
+    width: 24
+    height: 14
+  smoothTime: 0.15
 --- !u!4 &519420032
 Transform:
   m_ObjectHideFlags: 0
