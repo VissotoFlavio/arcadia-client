@@ -52,6 +52,7 @@ namespace Arcadia.Exploration
         private void BuildGround()
         {
             groundTilemap.ClearAllTiles();
+            groundTilemap.GetComponent<TilemapRenderer>().sortingOrder = YSortOrder.GroundOrder;
             var lightGround = CreateTile(new Color(0.38f, 0.59f, 0.47f));
             var darkGround = CreateTile(new Color(0.32f, 0.52f, 0.41f));
 
@@ -69,7 +70,7 @@ namespace Arcadia.Exploration
         {
             obstacleTilemap.ClearAllTiles();
             EnsureObstacleCollider();
-            obstacleTilemap.GetComponent<TilemapRenderer>().sortingOrder = 1;
+            obstacleTilemap.GetComponent<TilemapRenderer>().sortingOrder = YSortOrder.StaticObstacleOrder;
             var wallTile = CreateTile(new Color(0.21f, 0.26f, 0.31f), Tile.ColliderType.Grid);
             var maxX = MapOrigin.x + MapSize.x - 1;
             var maxY = MapOrigin.y + MapSize.y - 1;
@@ -108,10 +109,10 @@ namespace Arcadia.Exploration
             var visual = tree.AddComponent<SpriteRenderer>();
             visual.sprite = placeholderSprite;
             visual.color = new Color(0.12f, 0.38f, 0.19f);
-            visual.sortingOrder = 10;
             tree.transform.localScale = new Vector3(0.85f, 1.6f, 1f);
 
-            AddFootCollider(root, "TechnicalTreeFoot", cell, 0.22f);
+            var foot = AddFootCollider(root, "TechnicalTreeFoot", cell, 0.22f);
+            tree.AddComponent<YSortOrder>().SetFootAnchor(foot);
         }
 
         private void BuildRock(Vector3Int cell)
@@ -124,10 +125,10 @@ namespace Arcadia.Exploration
             var visual = rock.AddComponent<SpriteRenderer>();
             visual.sprite = placeholderSprite;
             visual.color = new Color(0.42f, 0.43f, 0.43f);
-            visual.sortingOrder = 5;
             rock.transform.localScale = new Vector3(0.65f, 0.45f, 1f);
 
-            AddFootCollider(root, "TechnicalRockFoot", cell, 0.24f);
+            var foot = AddFootCollider(root, "TechnicalRockFoot", cell, 0.24f);
+            rock.AddComponent<YSortOrder>().SetFootAnchor(foot);
         }
 
         private void SetObstacleTile(Vector3Int cell, Tile wallTile)
@@ -135,12 +136,13 @@ namespace Arcadia.Exploration
             obstacleTilemap.SetTile(cell, wallTile);
         }
 
-        private void AddFootCollider(Transform root, string colliderName, Vector3Int cell, float radius)
+        private Transform AddFootCollider(Transform root, string colliderName, Vector3Int cell, float radius)
         {
             var footprint = new GameObject(colliderName);
             footprint.transform.SetParent(root, false);
             footprint.transform.position = obstacleTilemap.GetCellCenterWorld(cell);
             footprint.AddComponent<CircleCollider2D>().radius = radius;
+            return footprint.transform;
         }
 
         private Transform GetOrCreateGeneratedRoot()
