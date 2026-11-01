@@ -9,6 +9,7 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e es
 ### Added
 
 - PlayerRoot técnico com movimento físico 2D e visual placeholder (#4).
+- Câmera ortográfica de exploração com acompanhamento e limites técnicos de mapa (#5).
 
 ## [0.1.0] - 2026-11-01
 
