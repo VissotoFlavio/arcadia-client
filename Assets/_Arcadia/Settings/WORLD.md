@@ -6,6 +6,7 @@
 - `PortalDefinition` usa um `portalId` estável e aponta para `destinationMapId` e `destinationSpawnPointId`.
 - `Portal` é o componente de cena do prefab reutilizável. Seu gatilho físico solicita uma única transição enquanto o jogador permanece na área.
 - `PortalVisual` desenha o marcador técnico temporário: um anel ciano e uma seta que aponta a saída. A arte final dos reinos substituirá somente essa apresentação.
+- `MapTransitionController` mantém a transição local em um objeto persistente, bloqueia o jogador durante o fade e reposiciona o novo `PlayerRoot` pelo `SpawnPoint` de destino.
 - `SpawnPointDefinition` representa o ID e a posição de uma entrada sem conhecer um `GameObject` da cena.
 - `SpawnPoint` é o componente de cena que converte sua posição em uma `SpawnPointDefinition`.
 - `ExplorationLocation` guarda o mapa, o ponto de entrada e a última posição do jogador.
@@ -33,6 +34,6 @@ Os dois pontos de entrada ficam em uma área livre de colisores. Nesta etapa ele
 
 ## Limite deste marco
 
-Os portais já são visíveis e comunicam a direção da saída, mas ainda não carregam cenas nem movem o jogador para um ponto de entrada. A próxima issue do M2 consumirá a solicitação do gatilho e fará a transição com fade.
+Os portais são visíveis, comunicam a direção da saída e carregam a cena de destino com fade curto, sem tela de loading explícita. O controlador persistente evita duplicar player, câmera, joystick e o próprio overlay durante a troca.
 
 O conteúdo de `GameSession` não é persistido: ao encerrar o aplicativo, o estado é perdido. A integração com API e banco de dados continua fora de escopo.
