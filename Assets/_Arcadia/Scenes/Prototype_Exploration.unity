@@ -1041,3 +1041,42 @@ SceneRoots:
   - {fileID: 528628029}
   - {fileID: 1907707261}
   - {fileID: 1404790630}
+  - {fileID: 1071199901}
+--- !u!1001 &1071199900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 514344001, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 514344001, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 514344003, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+      propertyPath: portalId
+      value: portal.exploration.to.outpost
+      objectReference: {fileID: 0}
+    - target: {fileID: 514344003, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+      propertyPath: destinationMap
+      value: ''
+      objectReference: {fileID: 11400000, guid: 8c0e5118a79d2554ebf2989d0b789ccb, type: 2}
+    - target: {fileID: 514344003, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+      propertyPath: destinationSpawnPointId
+      value: spawn.outpost.arrival
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+--- !u!4 &1071199901 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 514344001, guid: 2fd90d71340e4d2083f7b3323ea97a4f, type: 3}
+  m_PrefabInstance: {fileID: 1071199900}
+  m_PrefabAsset: {fileID: 0}

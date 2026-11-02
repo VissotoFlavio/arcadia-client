@@ -15,4 +15,7 @@ MonoBehaviour:
   mapId: map.prototype.outpost
   sceneReference: Prototype_Exploration_Second
   isSafeZone: 1
-  portals: []
+  portals:
+  - portalId: portal.outpost.to.exploration
+    destinationMapId: map.prototype.exploration
+    destinationSpawnPointId: spawn.exploration.start
