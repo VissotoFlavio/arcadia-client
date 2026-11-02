@@ -8,6 +8,7 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e es
 
 ### Added
 
+- Contratos de mapa, portal, ponto de entrada e sessão local em memória para o M2 (#17).
 - Perfil de build Android de desenvolvimento e validação concluída em dispositivo físico (#8).
 - Ordenação visual global por Y dos pés para jogador e props altos técnicos (#7).
 - Mapa técnico isométrico com chão placeholder, paredes, árvore, rocha e colisão por ocupação no pé (#6).
