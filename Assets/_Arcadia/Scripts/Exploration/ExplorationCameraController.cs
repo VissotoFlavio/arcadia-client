@@ -8,6 +8,7 @@ namespace Arcadia.Exploration
     {
         [SerializeField] private Transform target;
         [SerializeField] private Rect worldBounds = new(-12f, -7f, 24f, 14f);
+        [SerializeField] private Vector2 lookAheadOffset = new(0f, 1.25f);
         [SerializeField, Min(0f)] private float smoothTime = 0.15f;
 
         private Camera explorationCamera;
@@ -26,7 +27,7 @@ namespace Arcadia.Exploration
                 return;
             }
 
-            var desiredPosition = ClampToBounds(target.position);
+            var desiredPosition = ClampToBounds(target.position + (Vector3)lookAheadOffset);
             transform.position = smoothTime > 0f
                 ? Vector3.SmoothDamp(transform.position, desiredPosition, ref followVelocity, smoothTime)
                 : desiredPosition;

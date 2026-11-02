@@ -321,6 +321,7 @@ MonoBehaviour:
     y: -7
     width: 24
     height: 14
+  lookAheadOffset: {x: 0, y: 1.25}
   smoothTime: 0.15
 --- !u!1 &528628025
 GameObject:
