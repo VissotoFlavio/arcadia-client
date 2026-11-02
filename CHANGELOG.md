@@ -8,6 +8,7 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e es
 
 ### Added
 
+- Prefab técnico de portal visível, com gatilho de solicitação única e rotas de ida e volta entre os mapas técnicos (#19).
 - Segundo mapa técnico `Prototype_Exploration_Second`, definições de mapas seguros e pontos de entrada estáveis para as duas cenas (#18).
 - Contratos de mapa, portal, ponto de entrada e sessão local em memória para o M2 (#17).
 - Perfil de build Android de desenvolvimento e validação concluída em dispositivo físico (#8).
