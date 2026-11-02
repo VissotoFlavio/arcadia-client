@@ -81,6 +81,7 @@ mono_crash.*
 # Builds
 *.apk
 *.aab
+/*_BackUpThisFolder_ButDontShipItWithYourGame/
 *.unitypackage
 *.unitypackage.meta
 *.app
