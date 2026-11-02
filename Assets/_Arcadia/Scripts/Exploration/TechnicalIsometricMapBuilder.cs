@@ -17,6 +17,8 @@ namespace Arcadia.Exploration
         private const string ObstacleTilemapName = "ObstacleTilemap";
         private const string GeneratedObjectsName = "GeneratedTechnicalObstacles";
 
+        [SerializeField] private TechnicalMapVariant mapVariant = TechnicalMapVariant.Exploration;
+
         private Tilemap groundTilemap;
         private Tilemap obstacleTilemap;
         private Sprite placeholderSprite;
@@ -39,8 +41,7 @@ namespace Arcadia.Exploration
 
             BuildGround();
             BuildWalls();
-            BuildTallTree(new Vector3Int(3, 1, 0));
-            BuildRock(new Vector3Int(-4, -2, 0));
+            BuildLandmarks();
         }
 
         private Tilemap FindTilemap(string tilemapName)
@@ -53,8 +54,12 @@ namespace Arcadia.Exploration
         {
             groundTilemap.ClearAllTiles();
             groundTilemap.GetComponent<TilemapRenderer>().sortingOrder = YSortOrder.GroundOrder;
-            var lightGround = CreateTile(new Color(0.38f, 0.59f, 0.47f));
-            var darkGround = CreateTile(new Color(0.32f, 0.52f, 0.41f));
+            var lightGround = CreateTile(mapVariant == TechnicalMapVariant.Exploration
+                ? new Color(0.38f, 0.59f, 0.47f)
+                : new Color(0.56f, 0.48f, 0.35f));
+            var darkGround = CreateTile(mapVariant == TechnicalMapVariant.Exploration
+                ? new Color(0.32f, 0.52f, 0.41f)
+                : new Color(0.48f, 0.40f, 0.29f));
 
             for (var x = 0; x < MapSize.x; x++)
             {
@@ -71,7 +76,9 @@ namespace Arcadia.Exploration
             obstacleTilemap.ClearAllTiles();
             EnsureObstacleCollider();
             obstacleTilemap.GetComponent<TilemapRenderer>().sortingOrder = YSortOrder.StaticObstacleOrder;
-            var wallTile = CreateTile(new Color(0.21f, 0.26f, 0.31f), Tile.ColliderType.Grid);
+            var wallTile = CreateTile(mapVariant == TechnicalMapVariant.Exploration
+                ? new Color(0.21f, 0.26f, 0.31f)
+                : new Color(0.31f, 0.24f, 0.20f), Tile.ColliderType.Grid);
             var maxX = MapOrigin.x + MapSize.x - 1;
             var maxY = MapOrigin.y + MapSize.y - 1;
 
@@ -80,15 +87,43 @@ namespace Arcadia.Exploration
                 SetObstacleTile(new Vector3Int(x, maxY, 0), wallTile);
             }
 
-            for (var y = MapOrigin.y; y <= maxY; y++)
+            if (mapVariant == TechnicalMapVariant.Exploration)
             {
-                SetObstacleTile(new Vector3Int(MapOrigin.x, y, 0), wallTile);
+                for (var y = MapOrigin.y; y <= maxY; y++)
+                {
+                    SetObstacleTile(new Vector3Int(MapOrigin.x, y, 0), wallTile);
+                }
+
+                for (var x = 3; x <= 7; x++)
+                {
+                    SetObstacleTile(new Vector3Int(x, 3, 0), wallTile);
+                }
+            }
+            else
+            {
+                for (var y = MapOrigin.y; y <= maxY; y++)
+                {
+                    SetObstacleTile(new Vector3Int(maxX, y, 0), wallTile);
+                }
+
+                for (var x = -7; x <= -3; x++)
+                {
+                    SetObstacleTile(new Vector3Int(x, -1, 0), wallTile);
+                }
+            }
+        }
+
+        private void BuildLandmarks()
+        {
+            if (mapVariant == TechnicalMapVariant.Exploration)
+            {
+                BuildTallTree(new Vector3Int(3, 1, 0));
+                BuildRock(new Vector3Int(-4, -2, 0));
+                return;
             }
 
-            for (var x = 3; x <= 7; x++)
-            {
-                SetObstacleTile(new Vector3Int(x, 3, 0), wallTile);
-            }
+            BuildTallTree(new Vector3Int(-6, 2, 0));
+            BuildRock(new Vector3Int(4, -3, 0));
         }
 
         private void EnsureObstacleCollider()
@@ -192,6 +227,12 @@ namespace Arcadia.Exploration
 
             texture.Apply();
             return Sprite.Create(texture, new Rect(0f, 0f, width, height), new Vector2(0.5f, 0.5f), width);
+        }
+
+        private enum TechnicalMapVariant
+        {
+            Exploration,
+            Outpost
         }
     }
 }

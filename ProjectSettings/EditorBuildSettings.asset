@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Arcadia/Scenes/Prototype_Exploration.unity
     guid: e6e2882f30b90ed44ac3eac08a2d0c42
+  - enabled: 1
+    path: Assets/_Arcadia/Scenes/Prototype_Exploration_Second.unity
+    guid: f84817a60f3f0d94eae4b29f6fefd628
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 150f34534d2e7064480b37c3b2f76b0b, type: 3}
