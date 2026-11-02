@@ -8,6 +8,7 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e es
 
 ### Added
 
+- Enquadramento fixo da câmera com deslocamento de leitura à frente e jogador abaixo do centro (#22).
 - Transição entre mapas técnicos com fade curto, bloqueio de entrada e posicionamento no `SpawnPoint` de destino (#20).
 - Prefab técnico de portal visível, com gatilho de solicitação única e rotas de ida e volta entre os mapas técnicos (#19).
 - Segundo mapa técnico `Prototype_Exploration_Second`, definições de mapas seguros e pontos de entrada estáveis para as duas cenas (#18).
